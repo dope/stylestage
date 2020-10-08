@@ -1,0 +1,256 @@
+:root {
+  --base-header-ff: "Audiowide";
+  --base-ui-header-ff: "Press Start 2P";
+  --base-body-ff: "Tahoma";
+
+  --base-gutter: 22px;
+
+  --content-height: 600px;
+
+  --color-primary: #00AF54;
+  --color-secondary: #FFD639;
+
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--color-secondary);
+}
+
+body {
+  font-family: var(--base-body-ff);
+  max-width: 650px;
+  margin: 60px auto;
+  position: relative;
+}
+
+body::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  max-width: calc(650px + var(--base-gutter) * 2);
+  height: 100%;
+  content: "";
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    transparent 50%,
+    #00af555e 50%,
+    #00af555e
+  );
+  background-size: 100% 3px;
+  border-left: 2px solid var(--color-black);
+  border-right: 2px solid var(--color-black);
+}
+
+h1, h2, h3 {
+  font-family: var(--base-header-ff);
+}
+
+.skip-link {
+  display: none;
+}
+
+header {
+  position: relative;
+  padding: 30px 0;
+  border-left: 2px solid var(--color-black);
+  border-right: 2px solid var(--color-black);
+}
+
+header::before,
+header::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(var(--color-white), rgb(221, 221, 221));
+  box-shadow: 0 0 0 2px var(--color-black);
+  content: "";
+}
+
+header::after {
+  top: auto;
+  bottom: 0;
+}
+
+header .container {
+  background-color: var(--color-primary);
+  padding: 25px;
+}
+
+header h1 {
+  color: var(--color-white);
+  font-size: 2.5vw;
+  margin-bottom: 0;
+}
+
+header h2 {
+  font-size: 23px;
+  line-height: 1.1;
+  font-weight: 500;
+  color: var(--color-secondary);
+  margin-top: calc(var(--base-gutter) / 2);
+  margin-bottom: var(--base-gutter);
+}
+
+header p {
+  color: var(--color-white);
+}
+
+header a {
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+.link-github {
+  margin-top: calc(var(--base-gutter) * 2);
+  display: inline-block;
+  vertical-align: middle;
+  background: linear-gradient(var(--color-white), rgb(221, 221, 221));
+  padding: 8px 5px;
+  border: 2px solid var(--color-black);
+  font-family: var(--base-ui-header-ff);
+  text-transform: uppercase;
+  font-size: 8px;
+}
+
+.link-github:hover {
+  text-decoration: none;
+}
+
+.link-github svg {
+  width: 10px;
+}
+
+nav {
+  position: absolute;
+  left: 0;
+  width: 30%;
+  max-height: var(--content-height);
+  padding: 40px 20px;
+  background: var(--color-primary);
+  margin-top: var(--base-gutter);
+  border: 2px solid var(--color-black);
+}
+
+nav::before,
+nav::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(var(--color-white), rgb(221, 221, 221));
+  box-shadow: 0 0 0 2px var(--color-black);
+  content: "";
+}
+
+nav::after {
+  top: auto;
+  bottom: 0;
+}
+nav ul {
+  list-style: none;
+}
+
+nav a {
+  background: linear-gradient(var(--color-white), rgb(221, 221, 221));
+  width: 100%;
+  display: block;
+  margin-bottom: 4px;
+  border: 2px solid var(--color-black);
+  padding: 8px 5px;
+  font-family: var(--base-ui-header-ff);
+  text-transform: uppercase;
+  font-size: 8px;
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+nav {
+  counter-reset: section;
+}
+
+nav a::before {
+  counter-increment: section;
+  content: counter(section);
+  border-right: 2px solid var(--color-black);
+  padding: 8px;
+  padding-left: 6px;
+  margin-right: 10px;
+}
+
+main {
+  position: absolute;
+  left: 30%;
+  margin-top: var(--base-gutter);
+  border: 2px solid var(--color-black);
+  margin-left: var(--base-gutter);
+  background: var(--color-primary);
+  overflow: hidden;
+}
+
+main > .container {
+  max-height: var(--content-height);
+  overflow: scroll;
+  padding: var(--base-gutter);
+  padding-bottom: 4vh;
+}
+
+main h1, h2, h3 {
+  color: var(--color-white);
+  margin-top: var(--base-gutter);
+}
+
+main p,
+main ol,
+main ul  {
+  font-size: 14px;
+  line-height: 1.3;
+  color: var(--color-white);
+  margin-top: calc(var(--base-gutter) / 2);
+}
+
+main ul li,
+main ol li {
+  margin-left: var(--base-gutter);
+}
+
+main a {
+  color: var(--color-black);
+}
+
+main::before,
+main::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(var(--color-white), rgb(221, 221, 221));
+  box-shadow: 0 0 0 2px var(--color-black);
+  content: "";
+}
+
+main::after {
+  top: auto;
+  bottom: -3px;
+}
